@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors'); 
-// const drawingRoutes = require('./routes/drawingRoutes');
+const drawingRoutes = require('./routes/drawingRoutes');
 const PORT = process.env.PORT || 5000;
 // Load environment variables
 dotenv.config();
@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGODB, {
     .catch(err => console.error('MongoDB connection error:', err));
 
 // API Routes
-// app.use('/api/drawings', drawingRoutes);
+app.use('/api/drawings', drawingRoutes);
 
 // Start server
 app.get('/', (req, res)=>{
